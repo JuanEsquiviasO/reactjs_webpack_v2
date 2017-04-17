@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import MovieAddForm from './MovieAddForm'
 import MoviesList from './MoviesList'
 
 class App extends Component {
@@ -22,26 +23,35 @@ class App extends Component {
 		let form = e.target,
 			movie = {
 				id: form.id.value,
-				name: form.name.value,
-				director: form.director.value
+				name: (form.name.value) ? form.name.value : App.defaultProps.name,
+				director: (form.director.value) ? form.director.value : App.defaultProps.director
 			}
 		this.setState({
 			movies: this.state.movies.concat([movie])
 		})
+
+		form.reset()
 	}
 
 	render() {
 		return(
-			<MoviesList
-				movies={this.state.movies}
-				onAddMovie={this.handleOnAddMovie}
-			/>
+			<div>
+				<MovieAddForm onAddMovie={this.handleOnAddMovie} />
+				<MoviesList movies={this.state.movies} />
+			</div>
 		)
 	}
 }
 
-App.propTypes = {}
+App.propTypes = {
+	id: PropTypes.number.isRequired,
+	name: PropTypes.string.isRequired,
+	director: PropTypes.string.isRequired
+}
 
-App.defaultProps = {}
+App.defaultProps = {
+	name: 'Unknown movie',
+	director: 'Unassigned director'
+}
 
 export default App
