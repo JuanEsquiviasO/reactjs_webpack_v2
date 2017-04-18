@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import uid from 'uid'
+import $ from 'jquery'
+import { movies } from '../data/movies.json'
 import MovieAddForm from './MovieAddForm'
 import MoviesList from './MoviesList'
 
@@ -7,13 +10,12 @@ class App extends Component {
 		super(...props)
 
 		this.state = {
-			movies: [
-				{ id: 1, name: 'The Last Jedi', director: 'Rian Johnson' },
-				{ id: 2, name: 'The Justice League', director: 'Zack Snyder' }
-			]
+			movies: []
 		}
 
 		this.handleOnAddMovie = this.handleOnAddMovie.bind(this)
+		this.fetchData = this.fetchData.bind(this)
+		this.resetData = this.resetData.bind(this)
 	}
 
 	handleOnAddMovie(e) {
@@ -22,8 +24,8 @@ class App extends Component {
 
 		let form = e.target,
 			movie = {
-				id: form.id.value,
-				name: (form.name.value) ? form.name.value : App.defaultProps.name,
+				id: ( form.id.value ) ? form.id.value : App.defaultProps.id,
+				name: ( form.name.value ) ? form.name.value : App.defaultProps.name,
 				director: (form.director.value) ? form.director.value : App.defaultProps.director
 			}
 		this.setState({
@@ -33,23 +35,53 @@ class App extends Component {
 		form.reset()
 	}
 
+	fetchData() {
+		// setTimeout( () => this.setState( { movies:movies } ), 3000 )
+		$('#root')
+			.fadeOut( 3000, () => this.setState( { movies:movies } ) )
+			.fadeIn()
+	}
+
+	resetData() {
+		// this.setState( { movies: [] } )
+		$('#root')
+			.fadeOut( 3000, () => this.setState( { movies:[] } ) )
+			.fadeIn()
+	}
+
+	componentDidMount () {
+		this.fetchData()
+	}
+	
+
 	render() {
-		return(
-			<div>
-				<MovieAddForm onAddMovie={this.handleOnAddMovie} />
-				<MoviesList movies={this.state.movies} />
-			</div>
-		)
+		if ( !this.state.movies.length ) {
+			return (
+				<div>
+					<p>No movies available</p>
+					<button onClick={this.fetchData}>Load movies</button>
+				</div>
+			)
+		} else {
+			return(
+				<div>
+					<MovieAddForm onAddMovie={this.handleOnAddMovie} />
+					<MoviesList movies={this.state.movies} />
+					<button onClick={this.resetData}>Delete movies</button>
+				</div>
+			)
+		}
 	}
 }
 
 App.propTypes = {
-	id: PropTypes.number.isRequired,
+	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	director: PropTypes.string.isRequired
 }
 
 App.defaultProps = {
+	id: uid(10),
 	name: 'Unknown movie',
 	director: 'Unassigned director'
 }
