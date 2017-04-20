@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
 	BrowserRouter as Router,
 	Route,
@@ -7,6 +7,25 @@ import {
 	withRouter,
 	Switch
 } from 'react-router-dom'
+
+const AuthSite = () => (
+	<Router>
+		<div>
+			<AuthButton />
+			<ul>
+				<li><Link to="/">Home</Link></li>
+				<li><Link to="/public">Public Page</Link></li>
+				<li><Link to="/protected">Protected Page</Link></li>
+				</ul>
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<Route path="/public" component={Public} />
+					<PrivateRoute path="/protected" component={Protected} />
+					<Route path="/login" component={Login} />
+				</Switch>
+		</div>
+	</Router>
+)
 
 const fakeAuth = {
 	isAuthenticated: false,
@@ -19,10 +38,6 @@ const fakeAuth = {
 		setTimeout(cb, 100)
 	}
 }
-
-const Home = () => <h3>Home</h3>
-const Public = () => <h3>Public Content</h3>
-const Protected = () => <h3>Protected Content</h3>
 
 const AuthButton = withRouter( ( { history } ) => (
 	( fakeAuth.isAuthenticated ) 
@@ -43,6 +58,10 @@ const PrivateRoute = ( { component: Component, rest } ) => (
 	)} />
 )
 
+const Home = () => <h3>Home</h3>
+const Public = () => <h3>Public Content</h3>
+const Protected = () => <h3>Protected Content</h3>
+
 class Login extends Component {
 	constructor(...props) {
 		super(...props)
@@ -55,35 +74,26 @@ class Login extends Component {
 	}
 
 	login() {
-
+		fakeAuth.authenticate( () => this.setState({ redirectRoute: true }) )
 	}
 
 	render() {
-		if () {
+		const { from } = this.props.location.state || { from: { pathname: '/' } }
+		const { redirectRoute } = this.state
 
+		if ( redirectRoute ) {
+			return (
+				<Redirect to={from} />
+			)
 		} else {
-			
+			return (
+				<div>
+					<h3>You must be logged in to view this page <mark>{from.pathname}</mark></h3>
+					<button onClick={this.login}>Login</button>
+				</div>
+			)
 		}
 	}
 }
-
-const AuthSite = () => (
-	<Router>
-		<div>
-			<AuthButton />
-			<ul>
-				<li><Link to="/">Home</Link></li>
-				<li><Link to="/public">Public Page</Link></li>
-				<li><Link to="/protected">Protected Page</Link></li>
-				</ul>
-				<Switch>
-					<Route path="/" exact component={Home} />
-					<Route path="/public" component={Public} />
-					<PrivateRoute path="/protected" component={Protected} />
-					<Route path="/login" component={Login} />
-				</Switch>
-		</div>
-	</Router>
-)
 
 export default AuthSite
