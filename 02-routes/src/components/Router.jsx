@@ -47,9 +47,26 @@ const Services = () => (
 	</ul>
 )
 
-const Contact = () => (
-	<div>
-		<h2>Information</h2>
+const Contact = ( { match } ) => (
+	<div> 
+		<h2>Information of contact</h2>
+		<Route exact path={match.url} render={() => (
+			<h3>Stay in contact with us</h3>
+		)} />
+		<ul>
+			<li><Link to={`${match.url}/email`}>E-mail</Link></li>
+			<li><Link to={`${match.url}/web`}>Website</Link></li>
+			<li><Link to={`${match.url}/ubication`}>Ubication</Link></li>
+		</ul>
+		<Route path={`${match.url}/email`} render={() => (
+			<a href="mailto:jesquivias@pucp.edu.pe" target="_blank">jesquivias@pucp.edu.pe</a>
+		)} />
+		<Route path={`${match.url}/web`} render={() => (
+			<a href="https://juanesquiviaso.github.io/" target="_blank">juanesquiviaso.github.io</a>
+		)} />
+		<Route path={`${match.url}/ubication`} render={() => (
+			<a href="https://www.google.com.pe/maps/place/Universidad+Catolica/@-12.0690711,-77.0806311,17z/data=!3m1!4b1!4m5!3m4!1s0x9105c912d40840a5:0xd7a0bfb797e5862e!8m2!3d-12.0690764!4d-77.078437?hl=en" target="_blank">Lima - Perú</a>
+		)} />
 	</div>
 )
 
