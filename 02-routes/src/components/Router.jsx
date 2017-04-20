@@ -50,6 +50,7 @@ const Services = () => (
 const Contact = ( { match } ) => (
 	<div> 
 		<h2>Information of contact</h2>
+		<Route path={`${match.url}/:contactinfo`} component={InfoContact}  />
 		<Route exact path={match.url} render={() => (
 			<h3>Stay in contact with us</h3>
 		)} />
@@ -67,6 +68,12 @@ const Contact = ( { match } ) => (
 		<Route path={`${match.url}/ubication`} render={() => (
 			<a href="https://www.google.com.pe/maps/place/Universidad+Catolica/@-12.0690711,-77.0806311,17z/data=!3m1!4b1!4m5!3m4!1s0x9105c912d40840a5:0xd7a0bfb797e5862e!8m2!3d-12.0690764!4d-77.078437?hl=en" target="_blank">Lima - Perú</a>
 		)} />
+	</div>
+)
+
+const InfoContact = ( { match } ) => (
+	<div>
+		<h4>{match.params.contactinfo}</h4>
 	</div>
 )
 
