@@ -1,8 +1,142 @@
 {
-	"movies": [
-		{ "id" : 1, "name": "The Last Jedi", "director": "Rian Johnson" },
-		{ "id" : 2, "name": "The Justice League", "director": "Zack Snyder" },
-		{ "id" : 3, "name": "Iron Man", "director": "Jon Favreau" },
-		{ "id" : 4, "name": "Back to the Future", "director": "Robert Zemeckis" }
-	]
+  "movies": [
+    {
+      "id": 1,
+      "name": "Batman v Superman: Dawn of Justice",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt2975590/",
+      "rate": "6.7",
+      "director": "Zack Snyder",
+      "date": "25/03/2016",
+      "categories": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Guardians of the Galaxy",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SY1000_CR0,0,674,1000_AL_.jpgs",
+      "url": "http://www.imdb.com/title/tt2015381/",
+      "rate": "8.1",
+      "director": "James Gunn",
+      "date": "01/08/2014",
+      "categories": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "X-Men Origins: Wolverine",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BZWRhMzdhMzEtZTViNy00YWYyLTgxZmUtMTMwMWM0NTEyMjk3XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SY1000_CR0,0,676,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt0458525/",
+      "rate": "6.7",
+      "director": "Gavin Hood",
+      "date": "01/05/2009",
+      "categories": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Kick-Ass",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMzNzEzMDYxM15BMl5BanBnXkFtZTcwMTc0NTMxMw@@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt1250777/",
+      "rate": "7.7",
+      "director": "Matthew Vaughn",
+      "date": "16/04/2010",
+      "categories": [
+        "Action",
+				"Comedy"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Ted",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ1OTU0ODcxMV5BMl5BanBnXkFtZTcwOTMxNTUwOA@@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt1637725/",
+      "rate": "7.0",
+      "director": "Seth MacFarlane",
+      "date": "29/06/2012",
+      "categories": [
+        "Fantasy",
+				"Comedy"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Inception",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt1375666/",
+      "rate": "8.8",
+      "director": "Christopher Nolan",
+      "date": "16/07/2010",
+      "categories": [
+        "Accion",
+        "Adventure",
+        "Sci-Fi"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Skyfall",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BNDVhZmJiYWMtNmIzMC00ZWNiLTkzZDYtNGNlZmViMGM4OGExXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt1074638/",
+      "rate": "7.8",
+      "director": "Sam Mendes",
+      "date": "09/11/2012",
+      "categories": [
+        "Action",
+				"Adventure",
+				"Thriller"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Eternal Sunshine of the Spotless Mind",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTY4NzcwODg3Nl5BMl5BanBnXkFtZTcwNTEwOTMyMw@@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt0338013/",
+      "rate": "8.3",
+      "director": "Michel Gondry",
+      "date": "19/03/2004",
+      "categories": [
+        "Drama",
+        "Romance",
+        "Sci-Fi"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "The Dark Knight",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
+      "url": "http://www.imdb.com/title/tt0468569/",
+      "rate": "9.0",
+      "director": "Christopher Nolan",
+      "date": "18/07/2008",
+      "categories": [
+        "Action",
+        "Crime",
+				"Drama"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Indiana Jones and the Kingdom of the Crystal Skull",
+      "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTIxNDUxNzcyMl5BMl5BanBnXkFtZTcwNTgwOTI3MQ@@._V1_.jpg",
+      "url": "http://www.imdb.com/title/tt0367882/",
+      "rate": "6.2",
+      "director": "Steven Spielberg",
+      "date": "22/08/2008",
+      "categories": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ]
+    }    
+  ]
 }
